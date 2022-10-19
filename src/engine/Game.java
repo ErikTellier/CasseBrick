@@ -45,7 +45,6 @@ public class Game implements Runnable{
     }
 
     private void update(){
-        keyListener.update();
     }
 
     private void render(){
