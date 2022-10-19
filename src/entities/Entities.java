@@ -4,16 +4,18 @@ import java.awt.*;
 
 public abstract class Entities {
     private int x, y;
-    private int longer, larger;
+    private int width, height;
     private Color c;
 
-    public Entities(int x, int y, int longer, int larger, Color c) {
+    public Entities(int x, int y, int width, int height, Color c) {
         this.x = x;
         this.y = y;
-        this.longer = longer;
-        this.larger = larger;
+        this.width = width;
+        this.height = height;
         this.c = c;
     }
+
+    public abstract void draw(Graphics g);
 
     //Getters
     public int getX() {
@@ -24,12 +26,12 @@ public abstract class Entities {
         return y;
     }
 
-    public int getLongeur() {
-        return longer;
+    public int getWidth() {
+        return width;
     }
 
-    public int getLarg() {
-        return larger;
+    public int getHeight() {
+        return height;
     }
 
     public Color getColor() {

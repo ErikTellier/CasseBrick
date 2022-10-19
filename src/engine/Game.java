@@ -1,17 +1,28 @@
 package engine;
 
+import entities.Ball;
+import entities.Brick;
+import entities.Paddle;
+import entities.Wall;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 
 public class Game implements Runnable{
     private Window window;
     private int width, height;
     private String title;
-
     private boolean running = false;
     private Thread thread;
     private BufferStrategy bs;
     private Graphics g;
+
+    //Entities
+    Ball ball;
+    Paddle paddle;
+    ArrayList<Brick> bricks;
+    ArrayList<Wall> walls;
 
 
     public Game(String title, int width, int height){
@@ -26,8 +37,11 @@ public class Game implements Runnable{
         window = new Window(title, width, height);
 
     }
+
     private void update(){
+
     }
+
     private void render(){
         bs = window.getCanvas().getBufferStrategy();
         if(bs == null){
@@ -38,8 +52,7 @@ public class Game implements Runnable{
         g.clearRect(0, 0, width, height);
         //Draw Here!
 
-        g.setColor(Color.red);
-        g.fillRect(50, 50, 50, 70);
+
 
         //End Drawing!
         bs.show();
