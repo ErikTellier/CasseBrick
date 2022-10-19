@@ -1,7 +1,7 @@
-import engine.Window;
+import engine.Game;
 
 public class Launcher {
     public static void main(String[] args) {
-        new Window("test", 250, 250);
+        new Game("test", 250, 250);
     }
 }
