@@ -23,4 +23,8 @@ public class Window extends JFrame {
         add(canvas);
         pack();
     }
+
+    public Canvas getCanvas(){
+        return canvas;
+    }
 }
