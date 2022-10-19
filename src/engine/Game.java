@@ -18,9 +18,7 @@ public class Game implements Runnable{
     private Thread thread;
     private BufferStrategy bs;
     private Graphics g;
-
-    //Inputs
-    private KeyListener keyListener;
+    
 
     //Entities
     Ball ball;
@@ -34,17 +32,18 @@ public class Game implements Runnable{
         this.width = width;
         this.height = height;
 
-        keyListener = new KeyListener();
+
     }
 
     private void init(){
         window = new Window(title, width, height);
-        window.addKeyListener(keyListener);
+
 
         paddle = new Paddle(width/2 - 15, 225, 30,10,Color.blue);
     }
 
     private void update(){
+
     }
 
     private void render(){
