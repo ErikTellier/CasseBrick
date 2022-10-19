@@ -27,4 +27,6 @@ public class Window extends JFrame {
     public Canvas getCanvas(){
         return canvas;
     }
+
+
 }

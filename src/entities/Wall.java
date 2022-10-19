@@ -8,6 +8,11 @@ public class Wall extends Entities{
     }
 
     @Override
+    public void update() {
+
+    }
+
+    @Override
     public void draw(Graphics g) {
         g.setColor(getColor());
         g.fillRect(getX(), getY(), getWidth(), getHeight());

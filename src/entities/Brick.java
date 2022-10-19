@@ -8,6 +8,11 @@ public class Brick extends Entities{
     }
 
     @Override
+    public void update() {
+
+    }
+
+    @Override
     public void draw(Graphics g) {
         g.setColor(getColor());
         g.fillRect(getX(), getY(), getWidth(), getHeight());

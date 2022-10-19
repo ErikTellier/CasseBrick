@@ -15,6 +15,7 @@ public abstract class Entities {
         this.c = c;
     }
 
+    public abstract void update();
     public abstract void draw(Graphics g);
 
     //Getters

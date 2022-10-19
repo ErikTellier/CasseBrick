@@ -8,6 +8,11 @@ public class Ball extends Entities{
     }
 
     @Override
+    public void update() {
+
+    }
+
+    @Override
     public void draw(Graphics g) {
         g.setColor(getColor());
         g.fillOval(getX(), getY(), getWidth(), getHeight());
