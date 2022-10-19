@@ -24,6 +24,7 @@ public class Game implements Runnable{
 
     private void init(){
         window = new Window(title, width, height);
+
     }
     private void update(){
     }
@@ -34,7 +35,6 @@ public class Game implements Runnable{
             return;
         }
         g = bs.getDrawGraphics();
-
         g.clearRect(0, 0, width, height);
         //Draw Here!
 
