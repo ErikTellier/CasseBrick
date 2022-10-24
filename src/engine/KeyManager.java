@@ -8,7 +8,7 @@ public class KeyManager implements KeyListener {
     private boolean[] keys = new boolean[256];
 
     public KeyManager(){}
-    
+
     @Override
     public void keyTyped(KeyEvent e) {
 

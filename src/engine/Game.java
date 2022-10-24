@@ -4,6 +4,8 @@ import entities.Ball;
 import entities.Brick;
 import entities.Paddle;
 import entities.Wall;
+import states.GameState;
+import states.State;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -21,12 +23,12 @@ public class Game implements Runnable{
 
     private KeyManager keyManager;
 
+    private Handler handler;
 
-    //Entities
-    Ball ball;
-    Paddle paddle;
-    ArrayList<Brick> bricks = new ArrayList<Brick>();
-    ArrayList<Wall> walls = new ArrayList<Wall>();
+    //States
+    private State gameState;
+
+
 
 
     public Game(String title, int width, int height){
@@ -41,23 +43,16 @@ public class Game implements Runnable{
         window = new Window(title, width, height);
         window.addKeyListener(keyManager);
 
+        handler = new Handler(this);
 
-        paddle = new Paddle(width/2 - 20, 275, 40,7,Color.blue);
-        ball = new Ball(width/2-5, 250, 10,10, Color.red);
+        gameState = new GameState(handler);
+        State.setState(gameState);
 
-        walls.add(new Wall(0,0, width,10, Color.gray));//Top
-        walls.add(new Wall(0,0, 10,height, Color.gray));//Left
-        walls.add(new Wall(width-10,0, 10,height, Color.gray));//right
-        for(int j = 30; j <= 150; j += 15) {
-            for (int i = 30; i <= 260; i += 25) {
-                bricks.add(new Brick(i, j, 20, 10, Color.green));
-
-            }
-        }
     }
 
     private void update(){
-
+        if(State.getState() != null)
+            State.getState().update();
 
     }
 
@@ -71,10 +66,8 @@ public class Game implements Runnable{
         g.clearRect(0, 0, width, height);
         //Draw Here!
 
-        walls.forEach((n) -> n.draw(g));
-        bricks.forEach((n) -> n.draw(g));
-        paddle.draw(g);
-        ball.draw(g);
+        if(State.getState() != null)
+            State.getState().render(g);
 
         //End Drawing!
         bs.show();
@@ -133,5 +126,19 @@ public class Game implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    //GETTERS
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public KeyManager getKeyManager() {
+        return keyManager;
     }
 }
