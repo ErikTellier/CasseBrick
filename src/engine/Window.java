@@ -21,6 +21,8 @@ public class Window extends JFrame {
         canvas.setMinimumSize(new Dimension(width, height));
 
         add(canvas);
+
+
         pack();
     }
 
