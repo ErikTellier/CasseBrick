@@ -107,6 +107,8 @@ public class Game implements Runnable{
         }
 
         stop();
+        window.setVisible(false);
+        window.dispose();
     }
 
     //Threading
@@ -140,5 +142,9 @@ public class Game implements Runnable{
 
     public KeyManager getKeyManager() {
         return keyManager;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
     }
 }

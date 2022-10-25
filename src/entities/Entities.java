@@ -1,5 +1,6 @@
 package entities;
 
+import engine.Handler;
 import math.Vector;
 
 import java.awt.*;
@@ -8,8 +9,10 @@ public abstract class Entities {
     private Vector position;
     private int width, height;
     private Color c;
+    private Handler handler;
 
-    public Entities(Vector position, int width, int height, Color c) {
+    public Entities(Handler handler, Vector position, int width, int height, Color c) {
+        this.handler = handler;
         this.position = position;
         this.width = width;
         this.height = height;
@@ -21,9 +24,12 @@ public abstract class Entities {
 
     //Bounds
     public Rectangle getBounds() {
-        return new Rectangle(position.getX(), position.getY(), width, height);
+        return new Rectangle((int)position.getX(), (int)position.getY(), width, height);
     }
 
+    public boolean checkCollision(Entities ent){
+        return getBounds().intersects(ent.getBounds());
+    }
 
     //Getters
     public Vector getPosition() {
@@ -55,5 +61,13 @@ public abstract class Entities {
 
     public void setC(Color c) {
         this.c = c;
+    }
+
+    public void destroy(){
+        this.destroy();
+    }
+
+    public Handler getHandler() {
+        return handler;
     }
 }
