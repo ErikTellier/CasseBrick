@@ -1,10 +1,12 @@
 package entities;
 
+import math.Vector;
+
 import java.awt.*;
 
 public class Wall extends Entities{
-    public Wall(int x, int y, int width, int height, Color c) {
-        super(x, y, width, height, c);
+    public Wall(Vector position, int width, int height, Color c) {
+        super(position, width, height, c);
     }
 
     @Override
@@ -15,6 +17,6 @@ public class Wall extends Entities{
     @Override
     public void draw(Graphics g) {
         g.setColor(getColor());
-        g.fillRect(getX(), getY(), getWidth(), getHeight());
+        g.fillRect(getPosition().getX(), getPosition().getY(), getWidth(), getHeight());
     }
 }

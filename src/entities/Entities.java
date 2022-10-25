@@ -1,15 +1,16 @@
 package entities;
 
+import math.Vector;
+
 import java.awt.*;
 
 public abstract class Entities {
-    private int x, y;
+    private Vector position;
     private int width, height;
     private Color c;
 
-    public Entities(int x, int y, int width, int height, Color c) {
-        this.x = x;
-        this.y = y;
+    public Entities(Vector position, int width, int height, Color c) {
+        this.position = position;
         this.width = width;
         this.height = height;
         this.c = c;
@@ -20,18 +21,15 @@ public abstract class Entities {
 
     //Bounds
     public Rectangle getBounds() {
-        return new Rectangle(x, y, width, height);
+        return new Rectangle(position.getX(), position.getY(), width, height);
     }
 
 
     //Getters
-    public int getX() {
-        return x;
+    public Vector getPosition() {
+        return position;
     }
 
-    public int getY() {
-        return y;
-    }
 
     public int getWidth() {
         return width;
@@ -48,11 +46,11 @@ public abstract class Entities {
     //Setters
 
     public void setX(int x) {
-        this.x = x;
+        this.position.setX(x);
     }
 
     public void setY(int y) {
-        this.y = y;
+        this.position.setY(y);
     }
 
     public void setC(Color c) {
